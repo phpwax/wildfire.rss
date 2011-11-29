@@ -1,1 +1,5 @@
 Provide RSS feeds
+
+Head to /page-url/.rss
+
+Has some styling for chrome etc that dont come with it built in, can be overridden in public folder (public/stylesheets/wildfire.rss/*.css)

@@ -18,9 +18,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <div id="rss_content">
     <ul>
       <xsl:for-each select="rss/channel/item">
-      <div class="article">
-        <li><a href="{link}" rel="bookmark"><xsl:value-of select="title"/></a></li>        
-      </div>
+        <div class="article">
+          <h3><a href="{link}" rel="bookmark"><xsl:value-of select="title"/></a></h3>
+          <xsl:value-of select="description"/>
+        </div>
       </xsl:for-each>
       </ul>
     </div>

@@ -7,7 +7,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <head>
     <title><?=$cms_content->title?> - RSS</title>
 	  <?=css_bundle("wildfire.rss", array(), "wildfire.rss")?>
-	  <?=css_bundle("rss")?>	  
+	  <?=css_bundle("wildfire.rss")?>	  
   </head>
   <body>    
     <div id="explanation">

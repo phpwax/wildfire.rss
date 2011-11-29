@@ -1,0 +1,13 @@
+<? echo '<?xml version="1.0" encoding="UTF-8"?>';?>
+
+<? echo '<?xml-stylesheet href="'.$cms_content->permalink.'.xsl" type="text/xsl" media="screen"?>'; ?>
+
+  <rss version="2.0">
+  <channel>
+  	<title>RSS</title>
+		<language>en-gb</language>
+		<link>http://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></link>
+		<description>rss feed</description>
+		<?=$content_for_layout?>
+  </channel>
+</rss>

@@ -1,0 +1,17 @@
+Provide xml sitemap and html helpers
+
+First, make a Sitemap page at the top level of the cms (so these work)
+
+you can now hit $_SERVER['HTTP_HOST']/sitemap.xml and you'll get a sitemap
+
+if you want to make a html version there is a built in helper:
+
+<?=partial("__sitemap", array('filters'=>$filters, "scope"=>$cms_live_scope, 'nodes'=>false, 'change'=>"monthly", 'model'=> new $cms_content_class))?>
+
+$filters are applied to the model and children calls and should be in this form:
+
+$filters = array(
+              array('col'=>"column name", 'val'=>"value", 'operator'=> "= / != etc");
+              );
+              
+$scope is a model scope ("live" etc)

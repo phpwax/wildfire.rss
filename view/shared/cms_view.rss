@@ -2,7 +2,7 @@
   <title><![CDATA[<?=$cms_content->title?>]]></title>
   <link><![CDATA[http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?>]]></link>
   <guid isPermaLink="true">http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></guid>
-  <description><![CDATA[<?=strip_tags(html_entity_decode($cms_content->content))?>]]></description>
+  <description><![CDATA[<?=strip_tags(($cms_content->content))?>]]></description>
   <pubDate><?=date("D, d M Y H:i:s T", strtotime($cms_content->date_start))?></pubDate>		
 </item>
 
@@ -12,7 +12,7 @@
   <title><![CDATA[<?=$content->title?>]]></title>
   <link><![CDATA[http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$content->permalink?>]]></link>
   <guid isPermaLink="true">http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></guid>
-  <description><![CDATA[<?=strip_tags(html_entity_decode($content->content))?>]]></description>
+  <description><![CDATA[<?=strip_tags(($content->content))?>]]></description>
   <pubDate><?=date("D, d M Y H:i:s T", strtotime($content->date_start))?></pubDate>		
 </item>
 <?endforeach?>

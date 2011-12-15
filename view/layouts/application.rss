@@ -6,8 +6,9 @@
   <channel>
   	<title>RSS</title>
 		<language>en-gb</language>
-		<link>http://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></link>
+		<link>http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></link>
 		<description>rss feed</description>
+		<atom:link href="http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?>" rel="self" type="application/rss+xml"/>
 		<?=$content_for_layout?>
   </channel>
 </rss>

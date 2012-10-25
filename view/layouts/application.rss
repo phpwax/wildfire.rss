@@ -2,7 +2,7 @@
 
 <? echo '<?xml-stylesheet href="'.$cms_content->permalink.'.xsl" type="text/xsl" media="screen"?>'; ?>
 
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
   <channel>
   	<title>RSS</title>
 		<language>en-gb</language>

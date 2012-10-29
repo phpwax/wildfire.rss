@@ -5,7 +5,6 @@
   <description><![CDATA[<?=strip_tags(($cms_content->content))?>]]></description>
   <pubDate><?=date("D, d M Y H:i:s T", strtotime($cms_content->date_start))?></pubDate>		
 </item>
-
 <?if($kids = $cms_content->children):?>
 <?foreach($kids->scope("live")->all() as $content):?>
 <item>
@@ -14,6 +13,10 @@
   <guid isPermaLink="true">http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></guid>
   <description><![CDATA[<?=strip_tags(($content->content))?>]]></description>
   <pubDate><?=date("D, d M Y H:i:s T", strtotime($content->date_start))?></pubDate>		
+  <?if(($joins = $content->file_meta_get(false, "image")) && ($joins->count()) && ($join = $joins->first())):?>
+    <?$image = new WildfireFile($join->wildfire_file_id)?>
+    <enclosure url="http://<?=$_SERVER["HTTP_HOST"].$image->permalink?>" length="<?=$image->size?>" type="image/jpeg" />
+  <?endif?>
 </item>
 <?endforeach?>
 <?endif?>

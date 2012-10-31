@@ -11,7 +11,11 @@
   <title><![CDATA[<?=$content->title?>]]></title>
   <link><![CDATA[http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$content->permalink?>]]></link>
   <guid isPermaLink="true">http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></guid>
+  <?if($use_html):?>
+  <description><![CDATA[<?=($content->content)?>]]></description>
+  <?else:?>
   <description><![CDATA[<?=strip_tags(($content->content))?>]]></description>
+  <?endif?>
   <pubDate><?=date("D, d M Y H:i:s T", strtotime($content->date_start))?></pubDate>		
   <?if(($joins = $content->file_meta_get(false, "image")) && ($joins->count()) && ($join = $joins->first())):?>
     <?$image = new WildfireFile($join->wildfire_file_id)?>

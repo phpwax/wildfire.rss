@@ -1,3 +1,4 @@
+<?if($use_parent):?>
 <item>
   <title><![CDATA[<?=$cms_content->title?>]]></title>
   <link><![CDATA[http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?>]]></link>
@@ -5,6 +6,7 @@
   <description><![CDATA[<?=strip_tags(($cms_content->content))?>]]></description>
   <pubDate><?=date("D, d M Y H:i:s T", strtotime($cms_content->date_start))?></pubDate>		
 </item>
+<?endif;?>
 <?if($kids = $cms_content->children):?>
 <?foreach($kids->scope("live")->all() as $content):?>
 <item>

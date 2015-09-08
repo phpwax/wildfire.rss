@@ -4,7 +4,7 @@
 
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  	<title>RSS</title>
+  	<title><?=htmlspecialchars($cms_content->permalink)?> - RSS</title>
 		<language>en-gb</language>
 		<link>http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></link>
 		<description>rss feed</description>

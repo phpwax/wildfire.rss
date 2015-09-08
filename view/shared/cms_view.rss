@@ -12,13 +12,13 @@
 <item>
   <title><![CDATA[<?=$content->title?>]]></title>
   <link><![CDATA[http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$content->permalink?>]]></link>
-  <guid isPermaLink="true">http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$cms_content->permalink?></guid>
+  <guid isPermaLink="true">http<?if($_SERVER['HTTPS']):?>s<?endif?>://<?=$_SERVER['HTTP_HOST']?><?=$content->permalink?></guid>
   <?if($use_html):?>
   <description><![CDATA[<?=($content->content)?>]]></description>
   <?else:?>
   <description><![CDATA[<?=strip_tags(($content->content))?>]]></description>
   <?endif?>
-  <pubDate><?=date("D, d M Y H:i:s T", strtotime($content->date_start))?></pubDate>
+  <pubDate><?=date("D, d M Y H:i:s O", strtotime($content->date_start))?></pubDate>
   <?if(($joins = $content->file_meta_get(false, "image")) && ($joins->count()) && ($join = $joins->first())):?>
     <?$image = new WildfireMedia($join->wildfire_media_id)?>
     <enclosure url="http://<?=$_SERVER["HTTP_HOST"].$image->permalink?>" length="<?=$image->size?>" type="image/jpeg" />
